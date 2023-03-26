@@ -59,8 +59,10 @@ def main(config):
     result = torch.cat((probs, preds), 1)
     
     # write to tsv file
-    dt = pd.DataFrame(result.cpu().numpy(), columns=['Not_TSP_probability', 'TSP_probability', 'Predicted_label'], index=names)
-    dt.to_csv(config['output'], sep="\t")
+    dt = pd.DataFrame(result.cpu().numpy(), columns=['Not_TSP_probability', 'TSP_probability', 'Predicted_label'])
+    dt['ID'] = names
+    dt = dt[['ID', 'Not_TSP_probability', 'TSP_probability', 'Predicted_label']]
+    dt.to_csv(config['output'], sep="\t", index=False)
 
 if __name__ == '__main__':
     args = argparse.ArgumentParser(description='TailSpikeHunter test')

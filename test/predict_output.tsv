@@ -1,4 +1,4 @@
-	Not_TSP_probability	TSP_probability	Predicted_label
+ID	Not_TSP_probability	TSP_probability	Predicted_label
 biochar_1000_29:1-308	1.0	4.1813366e-09	0.0
 biochar_1000_30:1-215	1.0	1.1907589e-08	0.0
 biochar_1000_31:1-300	1.0	3.66284e-11	0.0
