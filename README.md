@@ -34,7 +34,7 @@ cd SpikeHunter
 ```
 usage: SpikeHunter.py [-h] [-c CONFIG] [-r RESUME] [-d DEVICE]
 
-TailSpikeHunter test
+SpikeHunter
 
 optional arguments:
   -h, --help            show this help message and exit

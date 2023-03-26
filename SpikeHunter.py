@@ -65,7 +65,7 @@ def main(config):
     dt.to_csv(config['output'], sep="\t", index=False)
 
 if __name__ == '__main__':
-    args = argparse.ArgumentParser(description='TailSpikeHunter test')
+    args = argparse.ArgumentParser(description='SpikeHunter')
     args.add_argument('-c', '--config', default=None, type=str,
                       help='config file path (default: None)')
     args.add_argument('-r', '--resume', default=None, type=str,
