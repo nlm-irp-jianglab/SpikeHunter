@@ -74,3 +74,7 @@ SpikeHunter is released under the [MIT License](./LICENSE).
 
 If you use SpikeHunter in your research, please cite it as follows:
 To be added
+
+## Credits
+
+This project uses code adapted from the [pytorch-template](https://github.com/victoresque/pytorch-template) repository by Victor Huang. We thank Victor Huang for providing this useful code as a starting point for our project.
