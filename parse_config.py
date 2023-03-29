@@ -7,6 +7,7 @@ from datetime import datetime
 from logger import setup_logging
 from utils import read_yaml, write_yaml
 
+script_dir = os.path.abspath(os.path.dirname( __file__ ))
 
 class ConfigParser:
     def __init__(self, config, resume=None, modification=None, run_id=None):
@@ -40,7 +41,7 @@ class ConfigParser:
         write_yaml(self.config, self.save_dir / 'config.yaml')
 
         # configure logging module
-        setup_logging(self.log_dir)
+        setup_logging(self.log_dir, log_config=os.path.join(script_dir, 'logger/logger_config.yaml'))
         self.log_levels = {
             0: logging.WARNING,
             1: logging.INFO,

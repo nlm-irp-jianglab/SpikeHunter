@@ -1,5 +1,5 @@
-# SpikeHunter
-SpikeHunter is a Python-based tool designed to mine TSP from phage sequences.
+# SpikeHunter: A Deep Learning Tool for Identifying Phage Tailspike Proteins
+SpikeHunter utilizes a deep learning approach to identify phage tailspike proteins. It achieves this by using a protein language model, ESM-2 transformer, which can detect patterns in protein sequences. The PyTorch framework enables efficient processing of large datasets, making SpikeHunter a valuable tool for researchers studying phage-host interactions.
 
 ## Table of Contents
 
@@ -22,7 +22,7 @@ conda env create --file environment.yml
 
 2. Clone the repository:
 ```
-git clone https://github.com/yourusername/SpikeHunter.git
+git clone https://github.com/nlm-irp-jianglab/SpikeHunter.git
 ```
 
 3. Change into the directory:
