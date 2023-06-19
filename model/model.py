@@ -12,7 +12,7 @@ class ESM1bEmbedding(nn.Module):
 
     def __init__(self, embedding_args: dict, embedding_pretrained=None, ft_embed_tokens: bool = False, ft_transformer: bool = False, ft_contact_head: bool = False,
                  ft_embed_positions: bool = False, ft_emb_layer_norm_before: bool = False, ft_emb_layer_norm_after: bool = False, 
-                 ft_lm_head: bool = False, max_embedding: int = 1024, offset: int = 200):
+                 ft_lm_head: bool = False):
         """ Constructor
         Args:
             embedding_args: arguments to embeddings model
@@ -24,8 +24,6 @@ class ESM1bEmbedding(nn.Module):
             ft_emb_layer_norm_before: finetune embedding layer norm before
             ft_emb_layer_norm_after: finetune embedding layer norm after
             ft_lm_head: finetune lm head layer
-            max_embeddings: maximum sequence length for language model
-            offset: overlap offset when concatenating sequences above max embedding
         """
         super(ESM1bEmbedding, self).__init__()
 
@@ -37,9 +35,6 @@ class ESM1bEmbedding(nn.Module):
             alphabet = esm.Alphabet.from_architecture(embedding_args['arch'])
             model_type = esm.ProteinBertModel
             self.model = model_type(Namespace(**embedding_args), alphabet,)
-
-        self.max_embedding = max_embedding
-        self.offset = offset
 
         # finetuning, freezes all layers by default since every 
         self.finetune = [ft_embed_tokens, ft_transformer, ft_contact_head,
@@ -67,7 +62,7 @@ class ESM1bEmbedding(nn.Module):
         batch_residues = batch_tokens.shape[1]
         
         # shape=batch_size, max_emdebbding, 1280
-        embedding = self.model(batch_tokens[:, :self.max_embedding], repr_layers=[33])["representations"][33]
+        embedding = self.model(batch_tokens[:, :], repr_layers=[33])["representations"][33]
         
         # convert nan to num 0.0
         embedding[embedding != embedding] = 0.0
