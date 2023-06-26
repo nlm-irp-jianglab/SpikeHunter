@@ -6,26 +6,12 @@ from torch.nn.utils.rnn import pack_padded_sequence, pad_packed_sequence
 from base import BaseModel
 import esm
 
-# NetSurfP-3.0: https://github.com/Eryk96/NetSurfP-3.0/blob/main/nsp3/nsp3/embeddings/esm1b.py
-class ESM1bEmbedding(nn.Module):
-    """ ESM1b embedding layer module """
+class ESM2Embedding(nn.Module):
 
     def __init__(self, embedding_args: dict, embedding_pretrained=None, ft_embed_tokens: bool = False, ft_transformer: bool = False, ft_contact_head: bool = False,
                  ft_embed_positions: bool = False, ft_emb_layer_norm_before: bool = False, ft_emb_layer_norm_after: bool = False, 
                  ft_lm_head: bool = False):
-        """ Constructor
-        Args:
-            embedding_args: arguments to embeddings model
-            embedding_pretrained: patht to pretrained model
-            ft_embed_tokens: finetune embed tokens layer
-            ft_transformer: finetune transformer layer
-            ft_contact_head: finetune contact head
-            ft_embed_positions: finetune embedding positions
-            ft_emb_layer_norm_before: finetune embedding layer norm before
-            ft_emb_layer_norm_after: finetune embedding layer norm after
-            ft_lm_head: finetune lm head layer
-        """
-        super(ESM1bEmbedding, self).__init__()
+        super(ESM2Embedding, self).__init__()
 
         # if given model path then pretrain
         if embedding_pretrained:
@@ -39,12 +25,10 @@ class ESM1bEmbedding(nn.Module):
         # finetuning, freezes all layers by default since every 
         self.finetune = [ft_embed_tokens, ft_transformer, ft_contact_head,
             ft_embed_positions, ft_emb_layer_norm_before, ft_emb_layer_norm_after, ft_lm_head]
-        # print("finetune status of all layers", self.finetune)
 
         # finetune by freezing unchoosen layers
         for i, child in enumerate(self.model.children()):
             if self.finetune[i] == False:
-                # print("layer "+str(i)+", <", child, "> is frozen!!!")
                 for param in child.parameters():
                     param.requires_grad = False
 
@@ -88,7 +72,7 @@ class Baseline(BaseModel):
         super().__init__()
 
         # ESM1b block
-        self.embedding = ESM1bEmbedding(embedding_args, embedding_pretrained, **kwargs)
+        self.embedding = ESM2Embedding(embedding_args, embedding_pretrained, **kwargs)
 
         # loss function will do log_softmax inside, no need to add a softmax layer here.
         # but remember to convert the output to probability by using: torch.exp(F.log_softmax(input, dim=1))
