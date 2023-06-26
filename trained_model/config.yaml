@@ -22,7 +22,7 @@ arch:
       token_dropout: true
       untie_weights_roberta: false
       use_bert_init: true
-    embedding_pretrained: /gpfs/gsfs12/users/Irp-jiang/share/yyang/ESM/checkpoints/esm2_t33_650M_UR50D.pt
+    embedding_pretrained: ./esm2_t33_650M_UR50D.pt
     n_hidden: 568
   type: Baseline
 data_loader:

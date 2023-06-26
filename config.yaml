@@ -37,7 +37,7 @@ arch:
       pooler_dropout: 0.0
       checkpoint_transformer_block: false
       untie_weights_roberta: false
-    embedding_pretrained: "/gpfs/gsfs12/users/Irp-jiang/share/yyang/ESM/checkpoints/esm2_t33_650M_UR50D.pt"
+    embedding_pretrained: "./esm2_t33_650M_UR50D.pt"
 
 transformer:
   type: ESM1bTokenize

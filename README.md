@@ -29,6 +29,13 @@ git clone https://github.com/nlm-irp-jianglab/SpikeHunter.git
 ```
 cd SpikeHunter
 ```
+4. Download essential models
+```
+# get esm2 model
+wget https://dl.fbaipublicfiles.com/fair-esm/models/esm2_t33_650M_UR50D.pt
+
+# go to XX to download model_best.pth and copy it to trained_model/ folder
+```
 
 ## Usage
 ```

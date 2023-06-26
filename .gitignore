@@ -1,3 +1,4 @@
 __pycache__/
 */__pycache__/
 trained_model/model_best.pth
+trained_model/model_best.zip
