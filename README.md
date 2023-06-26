@@ -34,7 +34,7 @@ cd SpikeHunter
 # get esm2 model
 wget https://dl.fbaipublicfiles.com/fair-esm/models/esm2_t33_650M_UR50D.pt
 
-# go to XX to download model_best.pth and copy it to trained_model/ folder
+# please go to https://figshare.com/articles/online_resource/SpikeHunter_trained_model_pth_file/23577051 to download model_best.pth and copy it to trained_model/ folder
 ```
 
 ## Usage
@@ -80,7 +80,7 @@ SpikeHunter is released under the [MIT License](./LICENSE).
 ## Citation
 
 If you use SpikeHunter in your research, please cite it as follows:
-To be added
+Yang Y, Dufault-Thompson K, Yan W, Cai T, Xie L, Jiang X. Deciphering Phage-Host Specificity Based on the Association of Phage Depolymerases and Bacterial Surface Glycan with Deep Learning. bioRxiv. 2023:2023-06.
 
 ## Credits
 
