@@ -25,7 +25,7 @@ def main(config):
     device, device_ids = prepare_device(config['n_gpu'])
     if len(device_ids) > 1:
         model = torch.nn.DataParallel(model, device_ids=device_ids)
-    model.load_state_dict(state_dict)
+    model.load_state_dict(state_dict, strict=False)
 
     model = model.to(device)
     model.eval()
