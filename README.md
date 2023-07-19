@@ -89,8 +89,8 @@ Yang Y, Dufault-Thompson K, Yan W, Cai T, Xie L, Jiang X. Deciphering Phage-Host
 This project uses code adapted from the [pytorch-template](https://github.com/victoresque/pytorch-template) repository by Victor Huang. We thank Victor Huang for providing this useful code as a starting point for our project.
 
 ## FAQ
-Q1. What if I encounter an Error: "torch.cuda.OutOfMemoryError: CUDA out of memory."?
-A1: Please decrease the batch size in predict.yaml. For example, from "batch_size: 50" to "batch_size: 25". 
+**Q1**. What if I encounter an Error: "torch.cuda.OutOfMemoryError: CUDA out of memory."?  
+**A1**: Please decrease the batch size in predict.yaml. For example, from "batch_size: 50" to "batch_size: 25". 
 
-Q2: What if I encounter an Error related to "/multiprocessing/popen_fork.py": "BlockingIOError: [Errno 11] Resource temporarily unavailable"?
-A2: Please decrease the number of workers in predict.yaml. For example, from "num_workers: 30" to "num_workers: 8".
+**Q2**: What if I encounter an Error related to "/multiprocessing/popen_fork.py": "BlockingIOError: [Errno 11] Resource temporarily unavailable"?  
+**A2**: Please decrease the number of workers in predict.yaml. For example, from "num_workers: 30" to "num_workers: 8".
