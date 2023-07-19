@@ -29,10 +29,12 @@ git clone https://github.com/nlm-irp-jianglab/SpikeHunter.git
 ```
 cd SpikeHunter
 ```
+
 4. Download essential models
 ```
-# get esm2 model
-wget https://dl.fbaipublicfiles.com/fair-esm/models/esm2_t33_650M_UR50D.pt
+# change ESM2 path
+./set_ESM_path.sh <your path for downloading ESM models>
+# For example: ./set_ESM_path.sh /data/Irp-jiang/share/yyang/ESM
 
 # please go to https://figshare.com/articles/online_resource/SpikeHunter_trained_model_pth_file/23577051 to download model_best.pth and copy it to trained_model/ folder
 ```
@@ -56,7 +58,7 @@ optional arguments:
 Simply run SpikeHunter using the following command:
 ```
 # The input and output files are in folder `test/`
-python SpikeHunter.py -c config.yaml -r trained_model/model_best.pth
+python SpikeHunter.py -c predict.yaml -r trained_model/model_best.pth
 ```
 
 ## Features

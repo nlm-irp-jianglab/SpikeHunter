@@ -12,7 +12,6 @@ arch:
       ffn_embed_dim: 5120
       layers: 33
       learned_pos: true
-      max_positions: 1024
       no_seed_provided: false
       normalize_after: true
       normalize_before: true
@@ -22,14 +21,14 @@ arch:
       token_dropout: true
       untie_weights_roberta: false
       use_bert_init: true
-    embedding_pretrained: ./esm2_t33_650M_UR50D.pt
+    embedding_pretrained: "/data/Irp-jiang/share/yyang/ESM/checkpoints/esm2_t33_650M_UR50D.pt"
     n_hidden: 568
   type: Baseline
 data_loader:
   args:
-    batch_size: 400
+    batch_size: 50
     num_workers: 30
-    path_to_tsv: ./data/train_1.tsv
+    path_to_tsv: ./data/train_4.tsv
     shuffle: true
   type: TsvDataLoader
 loss: cross_entropy_loss
@@ -45,8 +44,8 @@ metrics:
 - specificity
 - f1_score
 - mcc
-n_gpu: 4
-name: TSH_1_v2_train
+n_gpu: 2
+name: train
 optimizer:
   args:
     lr: 0.0005
@@ -58,15 +57,15 @@ trainer:
   monitor: min val_loss
   save_dir: result/
   save_period: 1
-  tensorboard: true
+  tensorboard: false
   verbosity: 2
 transformer:
   args: {}
-  type: ESM1bTokenize
+  type: ESM2Tokenize
 valid_data_loader:
   args:
-    batch_size: 400
+    batch_size: 50
     num_workers: 30
-    path_to_tsv: ./data/validation_1.tsv
+    path_to_tsv: ./data/validation_4.tsv
     shuffle: true
   type: TsvDataLoader
