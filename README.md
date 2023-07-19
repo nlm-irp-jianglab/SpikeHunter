@@ -14,16 +14,16 @@ SpikeHunter utilizes a deep learning approach to identify phage tailspike protei
 ## Installation
 To install SpikeHunter, follow these steps:
 
-1. Install the required dependencies:
+1. Clone the repository:
+```
+git clone https://github.com/nlm-irp-jianglab/SpikeHunter.git
+```
+
+2. Install the required dependencies:
 ```
 conda env create --file environment.yml
 # or if you have mamba installed
 # mamba env create --file environment.yml
-```
-
-2. Clone the repository:
-```
-git clone https://github.com/nlm-irp-jianglab/SpikeHunter.git
 ```
 
 3. Change into the directory:
