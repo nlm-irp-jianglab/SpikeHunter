@@ -1,3 +1,4 @@
+![Logo](image/logo.jpg)
 # SpikeHunter: A Deep Learning Tool for Identifying Phage Tailspike Proteins
 SpikeHunter utilizes a deep learning approach to identify phage tailspike proteins. It achieves this by using a protein language model, ESM-2 transformer, which can detect patterns in protein sequences. The PyTorch framework enables efficient processing of large datasets, making SpikeHunter a valuable tool for researchers studying phage-host interactions.
 
