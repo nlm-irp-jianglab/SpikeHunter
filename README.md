@@ -34,8 +34,11 @@ cd SpikeHunter
 4. Download essential models
 ```
 # change ESM2 path
-./set_ESM_path.sh <your path for downloading ESM models>
-# For example: ./set_ESM_path.sh /data/Irp-jiang/share/yyang/ESM
+export esm_folder=<your path for downloading ESM models>
+python setup.py ${esm_folder}
+# For example: 
+# export esm_folder=/data/Irp-jiang/share/yyang/ESM
+# python setup.py ${esm_folder}
 
 # please go to https://figshare.com/articles/online_resource/SpikeHunter_trained_model_pth_file/23577051 to download model_best.pth and copy it to trained_model/ folder
 ```
@@ -59,6 +62,8 @@ optional arguments:
 Simply run SpikeHunter using the following command:
 ```
 # The input and output files are in folder `test/`
+export esm_folder=<your path for downloading ESM model>
+envsubst < template.yaml > predict.yaml
 python SpikeHunter.py -c predict.yaml -r trained_model/model_best.pth
 ```
 
