@@ -1,5 +1,5 @@
 name: SpikeHunter
-n_gpu: 2
+n_gpu: 2 # only support >=2 GPUs 
 output: "test/predict_output.tsv"
 
 data_loader:
