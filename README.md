@@ -21,18 +21,14 @@ git clone https://github.com/nlm-irp-jianglab/SpikeHunter.git
 
 2. Install the required dependencies:
 ```
+cd SpikeHunter
 conda env create --file environment.yml
 # or if you have mamba installed
 # mamba env create --file environment.yml
 conda activate SpikeHunter
 ```
 
-3. Change into the directory:
-```
-cd SpikeHunter
-```
-
-4. Download essential models
+3. Download essential models
 ```
 # change ESM2 path
 export esm_folder=<your path for downloading ESM models>
