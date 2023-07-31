@@ -38,6 +38,7 @@ python setup.py ${esm_folder}
 # python setup.py ${esm_folder}
 
 # please go to https://figshare.com/articles/online_resource/SpikeHunter_trained_model_pth_file/23577051 to download model_best.pth and copy it to trained_model/ folder
+# Notice: Make sure config.yaml file is in the same folder with the model.
 ```
 
 ## Usage
