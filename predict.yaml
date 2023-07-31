@@ -1,12 +1,11 @@
 name: SpikeHunter
 n_gpu: 2
-esm_folder: "${esm_folder}"
 output: "test/predict_output.tsv"
 
 data_loader:
   type: TsvDataLoader
   args:
-    path_to_tsv: "test/predict_input.tsv"
+    path_to_tsv: "/gpfs/gsfs12/users/yangy34/projects/SPICE/data_test/predict_a.tsv"
     batch_size: 50
     num_workers: 8
     shuffle: false
@@ -37,7 +36,7 @@ arch:
       pooler_dropout: 0.0
       checkpoint_transformer_block: false
       untie_weights_roberta: false
-    embedding_pretrained: "${esm_folder}/checkpoints/esm2_t33_650M_UR50D.pt"
+    embedding_pretrained: "/data/Irp-jiang/share/yyang/ESM/checkpoints/esm2_t33_650M_UR50D.pt"
 
 transformer:
   type: ESM2Tokenize

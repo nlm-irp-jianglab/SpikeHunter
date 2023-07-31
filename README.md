@@ -24,6 +24,7 @@ git clone https://github.com/nlm-irp-jianglab/SpikeHunter.git
 conda env create --file environment.yml
 # or if you have mamba installed
 # mamba env create --file environment.yml
+conda activate SpikeHunter
 ```
 
 3. Change into the directory:

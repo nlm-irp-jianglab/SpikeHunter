@@ -1,6 +1,7 @@
 import esm
-import torch
-torch.hub.set_dir("/data/Irp-jiang/share/yyang/ESM")
+import os, torch
+esm_folder = os.getenv('esm_folder')
+torch.hub.set_dir(esm_folder)
 
 class ESM1bTokenize(object):
     """ Tokenizes a sequence for ESM1b model input """

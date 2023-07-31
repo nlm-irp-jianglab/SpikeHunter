@@ -1,6 +1,5 @@
 name: SpikeHunter
 n_gpu: 2
-esm_folder: "${esm_folder}"
 output: "test/predict_output.tsv"
 
 data_loader:
