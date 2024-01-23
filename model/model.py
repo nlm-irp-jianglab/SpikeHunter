@@ -6,9 +6,9 @@ from torch.nn.utils.rnn import pack_padded_sequence, pad_packed_sequence
 from base import BaseModel
 import esm
 
-# NetSurfP-3.0: https://github.com/Eryk96/NetSurfP-3.0/blob/main/nsp3/nsp3/embeddings/esm1b.py
 class ESM2Embedding(nn.Module):
-    """ ESM1b embedding layer module """
+    # Code was adpated from NetSurfP-3.0: https://github.com/Eryk96/NetSurfP-3.0/blob/main/nsp3/nsp3/embeddings/esm1b.py
+    """ ESM2 embedding layer module """
 
     def __init__(self, embedding_args: dict, embedding_pretrained=None, ft_embed_tokens: bool = False, ft_transformer: bool = False, ft_contact_head: bool = False,
                  ft_embed_positions: bool = False, ft_emb_layer_norm_before: bool = False, ft_emb_layer_norm_after: bool = False, 
@@ -87,7 +87,7 @@ class Baseline(BaseModel):
         """
         super().__init__()
 
-        # ESM1b block
+        # ESM2 block
         self.embedding = ESM2Embedding(embedding_args, embedding_pretrained, **kwargs)
 
         # loss function will do log_softmax inside, no need to add a softmax layer here.
@@ -100,10 +100,10 @@ class Baseline(BaseModel):
         nn.Linear(128,2)])
         
     def forward(self, x: torch.tensor, mask: torch.tensor) -> torch.tensor:
-        """ Forwarding logic """
-        """
-        x: batch_tokens (tensor)
-        mask: valid_lengths of batch_tokens (tensor)
+        """ Forwarding logic
+        Args:
+            x: batch_tokens (tensor)
+            mask: valid_lengths of batch_tokens (tensor)
         """
         x = self.embedding(x, max(mask)+2)
         # average residual embeddings to seq embeddings
