@@ -22,6 +22,11 @@ def main(config):
 
     checkpoint = torch.load(config.resume) # load pth model
     state_dict = checkpoint['state_dict']
+    for key in list(state_dict.keys()):
+        if 'module.' in key:
+            state_dict[key.replace('module.', '')] = state_dict[key]
+            del state_dict[key]
+
     device, device_ids = prepare_device(config['n_gpu'])
     if len(device_ids) > 1:
         model = torch.nn.DataParallel(model, device_ids=device_ids)
