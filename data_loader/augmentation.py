@@ -17,7 +17,7 @@ class ESM1bTokenize(object):
 class ESM2Tokenize(object):
     """ Tokenizes a sequence for ESM2 model input """
     def __init__(self):
-        model, alphabet = torch.hub.load("facebookresearch/esm:main", "esm2_t33_650M_UR50D")
+        model, alphabet = esm.pretrained.esm2_t33_650M_UR50D()
         self.batch_converter = alphabet.get_batch_converter()
 
     def __call__(self, x):
