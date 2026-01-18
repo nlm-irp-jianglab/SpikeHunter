@@ -22,7 +22,10 @@ class BaseDataLoader(DataLoader):
             'batch_size': batch_size,
             'shuffle': self.shuffle,
             'collate_fn': collate_fn,
-            'num_workers': num_workers
+            'num_workers': num_workers,
+            'pin_memory': True,
+            # keep workers alive to avoid process spin-up cost during long inference runs
+            'persistent_workers': num_workers > 0
         }
         super().__init__(sampler=self.sampler, **self.init_kwargs)
 
